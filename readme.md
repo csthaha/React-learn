@@ -43,3 +43,27 @@ Context 的作用就是解决 这个问题 ，它可以进行 跨层传递
     3. 后代组件 <Consumer> { () => {} } </Consumer>   获取数据
     4. state = { theme: 'purple' , toggle: 'this.handleToggletheme'}
         静态属性 无法获取 实例的 this
+
+
+
+## function && class 组件的区别
+    function component 也叫做 dumb component 只做一件事：
+        根据props 渲染页面，不会依赖任何东西，没有状态 state。性能好
+    class component 也叫做 smart component 需要负责 状态的管理，可能就需要依赖于其他的组件
+
+
+
+子组件向父组件传值 通过 回调 onChang={this.handleChange}
+
+## 状态管理
+    redux    cnpm i redux -S
+        把整个应用的状态当作放在全局的位置，任何一个组件都可以拿到这份状态
+        全局定义 var a = 1  a 就是一个全局的变量
+        定制了一套更改数据的流程 （因为更改比较难）
+    mobx
+## action
+    - action 是 js 中的一个 对象 {}，易于描述，可以用来描述干什么，传递数据
+        type: 'INCREMENT'
+## Reducer
+    - 是一个函数
+    - 负责一个功能就是更新 store (store 就是存数据的地方 )
