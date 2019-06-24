@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="wrapper">
+        <!-- <button class="like-btn">
+            <span class="like-text">
+                点赞
+            </span>
+            <span class="like-icon">👍</span>
+        </button> -->
+    </div>
+    <script>
+        // const button = document.querySelector('.like-btn');
+        // const buttonText = button.querySelector('.like-text');
+        // const buttonIcon = button.querySelector('.like-icon')
+        // let isLiked = false;
+        // button.addEventListener('click',() => {
+        //     console.log('---')
+        //      isLiked = !isLiked;
+        //     if(isLiked){
+        //         buttonText.innerHTML = '取消'
+        //     } else {
+        //         buttonText.innerHTML = '点赞'
+        //     }
+        // })
+
+        // wapper 挂载点 mount 到 根节点上
+        const wrapper = document.querySelector('.wrapper')
+        // String -> DOM
+        const createDOMFromString = (domString) => {
+            // DOM 比htmlString 好的地方在于 js 操作
+            const div = document.createElement('div');
+            div.innerHTML = domString;
+            return div;
+        }
+        class LikeButton {
+            constructor() {
+                this.state = {
+                    isLiked: false
+                }
+            }
+            changeLikeText() {
+                console.log(this.el)
+                // const likeText = this.el.querySelector('.like-text')
+                // this.state.isLiked = !this.state.isLiked
+                // likeText.innerHTML = this.state.isLiked ? '取消' : '点赞'
+                // 以上有太多的DOM 了
+                // 没有DOM
+                this.setState({
+                    isLiked: !this.state.isLiked
+                })
+            }
+            setState(state){
+                //将状态跟新
+                // VM 模型 this.state View 视图的实时对应
+                const oldEl = this.el
+                this.state = state;
+                this.el = this.render();
+                // DOM更新
+                if(this.onStateChange(oldEl,this.el)){
+
+                }
+
+            }
+            
+            // render 相当于之前的 dom template 必备的方法
+            render() {
+                this.el = createDOMFromString(`
+                <button class="like-btn">
+                    <span class="like-text">${this.state.isLiked ? '取消' : '确定'}</span>
+                </button>
+                `)
+                this.el.addEventListener('click', this.changeLikeText.bind(this), false);
+                return this.el;
+            }
+        }
+        const LikeButton1 = new LikeButton()
+        // console.log(wrapper)
+        // wrapper.innerHTML = LikeButton1.render()
+        wrapper.appendChild(LikeButton1.render())
+
+        LikeButton1.onStateChange = (oldEl,newEl) => {
+            wrapper.insertBefore(newEl,oldEl);
+            wrapper.removeChild(oldEl)
+        }
+
+        const LikeButton2 = new LikeButton()
+        wrapper.appendChild(LikeButton2.render())
+
+    </script>
+</body>
+
+</html>
