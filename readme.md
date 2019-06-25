@@ -79,3 +79,21 @@ Context 的作用就是解决 这个问题 ，它可以进行 跨层传递
 
 ## @
     es7 里面的 装饰器 decorator
+     yarn eject 本地仓库中都得提交了才能起作用
+
+## umi
+    可拔插的React企业级开发框架
+    - 约定式的路由
+    - 开箱即用
+- cd js cd / try-umi
+- umi generate page index 
+
+### umi-
+    - umi generate page index 用 此命令创建路由
+        自建路由，显示页面级路由组件
+    - umi dev     - umi build 打包
+    - umi 内置封装了 react-router-dom
+    - umi pages/ 约定文件即路由
+    - umi 内有react-router，封装了umi/link umi/router
+
+nvm list  查看node 的所有版本
