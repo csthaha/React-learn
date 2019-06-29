@@ -55,7 +55,7 @@ Context 的作用就是解决 这个问题 ，它可以进行 跨层传递
 
 子组件向父组件传值 通过 回调 onChang={this.handleChange}
 
-## 状态管理
+## 状态管理 redux
     redux    cnpm i redux -S
         把整个应用的状态当作放在全局的位置，任何一个组件都可以拿到这份状态
         全局定义 var a = 1  a 就是一个全局的变量
@@ -97,3 +97,11 @@ Context 的作用就是解决 这个问题 ，它可以进行 跨层传递
     - umi 内有react-router，封装了umi/link umi/router
 
 nvm list  查看node 的所有版本
+
+
+## redux , react-redux
+
+redux 专门做数据管理 
+react-redux 将数据用到react 组件中
+
+## 装饰者模式
