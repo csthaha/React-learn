@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <iframe id="page" src="http://localhost:1234/iframe.html" frameborder="0">
+        <!-- 访问到后端页面上的内容 -->
+
+    </iframe>
+    <script>
+        // postMessage
+        // window.onload = function() {
+        //     // 窗口的引用。 postMessage("消息","origin")
+        //     const page = document.getElementById('page');
+        //     // ifram 标签引用获取方式 .contentWindow
+        //     const iframe = page.contentWindow;
+        //     iframe.postMessage('123','http://localhost:1234');
+        //     window.addEventListener('message', function(e) {
+        //         console.log('收到结果', e.data)
+        //     })
+        // }
+
+        function print(data) {
+            console.log('收到请求的结果', data);
+        }
+    </script>
+</body>
+</html>
